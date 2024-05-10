@@ -1,5 +1,12 @@
 import React from "react";
-import { Text, StyleSheet, View, Image, ScrollView } from "react-native";
+import {
+  Text,
+  StyleSheet,
+  View,
+  Image,
+  ScrollView,
+  FlatList,
+} from "react-native";
 import products from "../../assets/data/products";
 import ProductListItem from "../../components/ProductListItem";
 
@@ -7,10 +14,17 @@ import ProductListItem from "../../components/ProductListItem";
 
 const HomePage = () => {
   return (
-    <ScrollView>
-      <ProductListItem product={products[0]} />
-      <ProductListItem product={products[1]} />
-    </ScrollView>
+    <View>
+      {/* <ProductListItem product={products[0]} />
+      <ProductListItem product={products[1]} /> */}
+      <FlatList
+        data={products}
+        renderItem={({ item }) => <ProductListItem product={item} />}
+        numColumns={2}
+        contentContainerStyle={{ gap: 10, padding: 10 }}
+        columnWrapperStyle={{ gap: 10 }}
+      />
+    </View>
   );
 };
 

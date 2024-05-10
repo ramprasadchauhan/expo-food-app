@@ -2,15 +2,18 @@ import React from "react";
 import { Text, StyleSheet, View, Image, ScrollView } from "react-native";
 import { Colors } from "../constants/Colors";
 
+export const defaultPizzaImage =
+  "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/food/default.png";
+
 const ProductListItem = ({ product }) => {
   return (
     <View style={styles.container}>
       <Image
         source={{
-          uri: product.image,
+          uri: product.image || defaultPizzaImage,
         }}
         style={styles.image}
-        // resizeMode="contain"
+        resizeMode="contain"
       />
       <Text style={styles.title}> {product.name} </Text>
       <Text style={styles.price}>$ {product.price} </Text>
@@ -20,10 +23,12 @@ const ProductListItem = ({ product }) => {
 
 const styles = StyleSheet.create({
   container: {
-    marginVertical: 10,
+    flex: 1,
     backgroundColor: "#ffffff",
     padding: 10,
     borderRadius: 20,
+    maxWidth: "50%",
+    // margin: 5,
   },
   title: {
     fontSize: 18,
