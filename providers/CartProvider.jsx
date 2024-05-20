@@ -40,7 +40,7 @@ const CartProvider = ({ children }) => {
         )
         .filter((item) => item.quantity > 0)
     );
-    console.log(itemId, amount);
+    // console.log(itemId, amount);
   };
   // console.log(items);
   const total = items.reduce(
